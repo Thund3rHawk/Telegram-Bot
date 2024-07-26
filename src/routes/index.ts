@@ -1,5 +1,5 @@
 import express from 'express'
-import { telegramBot } from '../src/controller/TelegramBot.controller';
+import { telegramBot } from '../controller/TelegramBot.controller';
 
 const router = express.Router();
 
