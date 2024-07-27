@@ -7,21 +7,21 @@ const telegramBot = async () => {
     try {
         const bot = new TelegramBot(token);
         bot.onText(/\/echo (.+)/, async (msg, match) => {
-            const message = await aiResponse(msg.text as string);
             const chatId = msg.chat.id;
             if (match) {
                 const resp = match[1]; 
                 bot.sendMessage(chatId, resp);
-            } 
+            }          
+        });
 
-            bot.on('message', async (msg) => {
-                const chatId = msg.chat.id;
-                bot.sendMessage(chatId, message as string);
-            });
+        bot.on('message', async (msg) => {
+            const message = await aiResponse(msg.text as string);
+            const chatId = msg.chat.id;
+            bot.sendMessage(chatId, message as string);
             console.log('message', msg.text);
             console.log('Response', message);
         });
-
+        
 
     } catch (error) {
         console.log("telegram bot api error: ", error);
