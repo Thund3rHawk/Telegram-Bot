@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node src/index.ts",
-    "build": "tsc",
+    "build": "yarn build --output public",
     "start": "node dist/index.js"
   },
   "dependencies": {
