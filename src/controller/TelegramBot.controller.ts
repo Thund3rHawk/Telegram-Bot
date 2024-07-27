@@ -7,13 +7,13 @@ const telegramBot = async () => {
     try {
         const bot = new TelegramBot(token, {polling: false});
         
-        bot.startPolling();
+        bot.stopPolling();
         bot.onText(/\/echo (.+)/, async (msg) => {
             const message = await aiResponse(msg.text as string);
             const chatId = msg.chat.id;
             bot.sendMessage(chatId, message as string);
         });        
-        bot.stopPolling();
+        bot.startPolling();
         
     } catch (error) {
         console.log("telegram bot api error: ", error);
