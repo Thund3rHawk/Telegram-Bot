@@ -5,7 +5,7 @@ const token = process.env.TELEGRAM_BOT_TOKEN as string;
 
 const telegramBot = async () => {
     try {
-        const bot = new TelegramBot(token);
+        const bot = new TelegramBot(token, {polling: true});
         bot.onText(/\/echo (.+)/, async (msg, match) => {
             const chatId = msg.chat.id;
             if (match) {
