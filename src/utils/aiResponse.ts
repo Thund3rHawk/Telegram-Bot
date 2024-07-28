@@ -8,8 +8,7 @@ export async function aiResponse(message: string) {
         const result = await model.generateContent(prompt);
         const response = result.response;
         const text = response.text();
-        console.log(text);
-        return (text);
+        return text;
     } catch (error) {
         console.log('Gemini Error: ', error);
     }
